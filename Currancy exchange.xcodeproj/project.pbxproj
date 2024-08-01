@@ -22,6 +22,7 @@
 		66AB87282C41A4A1001682CA /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AB87272C41A4A1001682CA /* HeaderView.swift */; };
 		66AB872A2C43D06E001682CA /* CustomeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AB87292C43D06E001682CA /* CustomeTextField.swift */; };
 		66AB872C2C452807001682CA /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AB872B2C452807001682CA /* OnboardingViewModel.swift */; };
+		66AB872E2C47E640001682CA /* DashedPageTabViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AB872D2C47E640001682CA /* DashedPageTabViewStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		66AB87272C41A4A1001682CA /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		66AB87292C43D06E001682CA /* CustomeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomeTextField.swift; sourceTree = "<group>"; };
 		66AB872B2C452807001682CA /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		66AB872D2C47E640001682CA /* DashedPageTabViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedPageTabViewStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +228,7 @@
 			children = (
 				66AB87272C41A4A1001682CA /* HeaderView.swift */,
 				66AB87292C43D06E001682CA /* CustomeTextField.swift */,
+				66AB872D2C47E640001682CA /* DashedPageTabViewStyle.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				6635B83C2C3ACC0600FA7001 /* Color+Extentions.swift in Sources */,
 				66AB87192C4135B7001682CA /* OnboardingModel.swift in Sources */,
 				66AB871F2C41A09E001682CA /* OnboardingScreen.swift in Sources */,
+				66AB872E2C47E640001682CA /* DashedPageTabViewStyle.swift in Sources */,
 				6694E0862C1B1AE100384340 /* Item.swift in Sources */,
 				66AB872A2C43D06E001682CA /* CustomeTextField.swift in Sources */,
 				66AB872C2C452807001682CA /* OnboardingViewModel.swift in Sources */,
