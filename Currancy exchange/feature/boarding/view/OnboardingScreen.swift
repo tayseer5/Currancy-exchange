@@ -24,20 +24,20 @@ struct OnboardingScreen: View {
                 // Image slider
                 ImageSlider()
                 // Next button
-                Button(action: {
-                    // Action for next button
-                }) {
-                    HStack{
+                NavigationLink(destination: NextScreen()) { // Use NavigationLink for navigation
+                    HStack {
                         Spacer()
                         Text("Next")
                             .font(.headline)
                         Spacer()
-                    }.frame(height: 30)
+                    }
+                    .frame(height: 44) // Standard height for buttons
                 }
                 .buttonStyle(BorderedProminentButtonStyle())
                 .tint(.newTintColor)
                 .padding(.bottom, 20)
                 .padding(.horizontal, 20)
+                .accessibilityIdentifier("NextButton") // Accessibility identifier
                 Spacer()
             }
             .navigationBarTitleDisplayMode(.inline)
@@ -48,6 +48,7 @@ struct OnboardingScreen: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 30, height: 30)
+                            .accessibilityLabel("Coinmoney Logo")
                         Text("Coinmoney")
                             .font(.customFont(font: .ReadexPro, style: .bold, size: .title))
                             .foregroundColor(.newTintColor)
@@ -61,22 +62,22 @@ struct OnboardingScreen: View {
 //if i use this code slider not work
 /*
  {
-     ForEach(viewModel.slides) { slide in
-         VStack ( spacing: 10){
-             Image(slide.imageName)
-                 .resizable()
-                 .aspectRatio(contentMode: .fit)
-             Group {
-                 Text(slide.title)
-                     .frame(alignment: .center)
-                     .font(.customFont(font: .ReadexPro, style: .bold, size: .header))
-                 Text(slide.infoTitle)
-                     .font(.customFont(font: .ReadexPro, style: .medium, size: .descriptionTitle))
-                     .padding(.horizontal, 20)
-             }.multilineTextAlignment(.center)
-         }
-         .tag(slide.id)
-     }
+ ForEach(viewModel.slides) { slide in
+ VStack ( spacing: 10){
+ Image(slide.imageName)
+ .resizable()
+ .aspectRatio(contentMode: .fit)
+ Group {
+ Text(slide.title)
+ .frame(alignment: .center)
+ .font(.customFont(font: .ReadexPro, style: .bold, size: .header))
+ Text(slide.infoTitle)
+ .font(.customFont(font: .ReadexPro, style: .medium, size: .descriptionTitle))
+ .padding(.horizontal, 20)
+ }.multilineTextAlignment(.center)
+ }
+ .tag(slide.id)
+ }
  }
  */
 struct ImageSlider: View {
@@ -86,9 +87,11 @@ struct ImageSlider: View {
             TabView(selection: $viewModel.currentIndex) {
                 ForEach(0..<$viewModel.slides.count, id: \.self) { index in
                     sliderView(for: viewModel.slides[index])
+                        .tag(index)
                 }
             }
             .tabViewStyle(.page)
+            .animation(.easeInOut, value: viewModel.currentIndex) // Add animation
             DashedPageTabViewStyle(numberOfPages: viewModel.slides.count, currentIndex: viewModel.currentIndex)
             Spacer()
         }
@@ -100,6 +103,7 @@ private func sliderView(for slider: OnboardingModel) -> some View {
         Image(slider.imageName)
             .resizable()
             .aspectRatio(contentMode: .fit)
+            .accessibilityLabel(slider.title)
         Group {
             Text(slider.title)
                 .frame(alignment: .center)
@@ -110,6 +114,16 @@ private func sliderView(for slider: OnboardingModel) -> some View {
         }.multilineTextAlignment(.center)
     }
 }
+
+struct NextScreen: View {
+    var body: some View {
+        Text("Welcome to the Next Screen!")
+            .font(.largeTitle)
+            .padding()
+            .navigationTitle("Next")
+    }
+}
+
 
 #Preview {
     OnboardingScreen()
