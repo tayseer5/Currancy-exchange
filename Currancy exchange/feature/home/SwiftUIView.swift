@@ -9,10 +9,21 @@ import SwiftUI
 
 struct SwiftUIView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+            NavigationView {
+                Text("Primary")
+                Text("Secondary")
+            }
+        }
 }
 
 #Preview {
     SwiftUIView()
+}
+
+struct ResultView: View {
+    var choice: String
+
+    var body: some View {
+        Text("You chose \(choice)")
+    }
 }

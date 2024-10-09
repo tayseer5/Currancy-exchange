@@ -52,7 +52,7 @@ struct loginScreen: View {
                     .font(.customFont(font: .ReadexPro, style: .medium, size: .descriptionTitle))
                 
                 // Sign In Button
-                NavigationLink(destination: loginScreen()) { // Use NavigationLink for navigation
+                NavigationLink(destination: SwiftUIView()) { // Use NavigationLink for navigation
                     HStack {
                         Spacer()
                         Text("Sign in")
