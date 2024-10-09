@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6635B83C2C3ACC0600FA7001 /* Color+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6635B83B2C3ACC0600FA7001 /* Color+Extentions.swift */; };
+		667070312C65506C00BA3454 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667070302C65506C00BA3454 /* SwiftUIView.swift */; };
 		6694E0822C1B1AE100384340 /* Currancy_exchangeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6694E0812C1B1AE100384340 /* Currancy_exchangeApp.swift */; };
 		6694E0862C1B1AE100384340 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6694E0852C1B1AE100384340 /* Item.swift */; };
 		6694E0882C1B1AE300384340 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6694E0872C1B1AE300384340 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		6635B83B2C3ACC0600FA7001 /* Color+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extentions.swift"; sourceTree = "<group>"; };
+		667070302C65506C00BA3454 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		6694E07E2C1B1AE100384340 /* Currancy exchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Currancy exchange.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6694E0812C1B1AE100384340 /* Currancy_exchangeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currancy_exchangeApp.swift; sourceTree = "<group>"; };
 		6694E0852C1B1AE100384340 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 		66AB871D2C418F3E001682CA /* home */ = {
 			isa = PBXGroup;
 			children = (
+				667070302C65506C00BA3454 /* SwiftUIView.swift */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 			files = (
 				6635B83C2C3ACC0600FA7001 /* Color+Extentions.swift in Sources */,
 				66AB87192C4135B7001682CA /* OnboardingModel.swift in Sources */,
+				667070312C65506C00BA3454 /* SwiftUIView.swift in Sources */,
 				66AB871F2C41A09E001682CA /* OnboardingScreen.swift in Sources */,
 				66AB872E2C47E640001682CA /* DashedPageTabViewStyle.swift in Sources */,
 				6694E0862C1B1AE100384340 /* Item.swift in Sources */,

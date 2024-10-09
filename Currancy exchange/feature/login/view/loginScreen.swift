@@ -10,137 +10,124 @@ import SwiftUI
 
 /**
  questions
- 1) overlay
- 2) stroke
- 3) RoundedRectangle
+ read cleaned code
+ working with touch id
+ save credentials
+ 
  */
 //TODO: gradinat background
 struct loginScreen: View {
-    @State var username: String = ""
-    @State var password: String = ""
-    @State var useTouchID: Bool = false
+    @State private var username: String = ""
+    @State private var password: String = ""
+    @State private var useTouchID: Bool = false
+    @State private var isSecure: Bool = true
+    
     var body: some View {
-        VStack{
-            HeaderView()
-            Text("Login to your Account")
-                .font(.customFont(font: .ReadexPro, style: .bold, size: .header))
-                .multilineTextAlignment(.center)
-                .padding(.horizontal, 20.0)
-                .padding(.top, 30.0)
-            ZStack {
-                TextField(
-                    "Username",
-                    text: $username
-                )
-                .keyboardType(.emailAddress)
-                .frame(width: .infinity, height: 20.0)
-                .autocapitalization(.none)
-                .padding()
-                .background(Color.gray.opacity(0.2))
-                .cornerRadius(10)
-                .overlay{
-                    RoundedRectangle(cornerRadius: 10.0)
-                        .stroke(.blue,lineWidth: 2)
-                }
-            }.padding(.horizontal, 20.0)
-                .padding(.vertical, 10.0)
-            ZStack {
-                SecureField(
-                    "Password",
-                    text: $password
-                )
-                .frame(width: .infinity, height: 20.0)
-                .autocapitalization(.none)
-                .padding()
-                .background(Color.gray.opacity(0.2))
-                .cornerRadius(10)
-                .overlay{
-                    RoundedRectangle(cornerRadius: 10.0)
-                        .stroke(.blue,lineWidth: 2)
-                }
-            }.padding(.horizontal, 20.0)
-            
-            // Forgot Password
-            HStack {
-                Text("Forgot your password?")
-                    .font(.customFont(font: .ReadexPro, style: .medium, size: .descriptionTitle))
-                Button(action: {
-                    // Forgot password action
-                }) {
-                    Text("Click here")
-                        .foregroundColor(.newTintColor)
+        NavigationView {
+            VStack(spacing: 25) {
+                // Header
+                Text("Login to your Account")
+                    .font(.customFont(font: .ReadexPro, style: .bold, size: .header))
+                    .multilineTextAlignment(.center)
+                // Username and Password Fields
+                CustomeTextField(text: $username, placeHolder: "Username", keyboardType: .emailAddress, iconImage: Image(systemName: "envelope"), isSecure: .constant(false), disabledButton: .constant(true))
+                CustomeTextField(text: $password, placeHolder: "Password", keyboardType: .default, iconImage: Image(systemName: "lock.fill"), isSecure: $isSecure, disabledButton: .constant(false))
+                // Forgot Password
+                HStack {
+                    Text("Forgot your password?")
                         .font(.customFont(font: .ReadexPro, style: .medium, size: .descriptionTitle))
-                }.padding(.horizontal, -3)
-            }
-            .padding(.horizontal, 20)
-            .padding(.top, 10)
-            
-            //touch Id toggle
-            Toggle("Unlock with Touch ID?", isOn: $useTouchID)
-                .padding(.horizontal, 20.0)
-                .font(.customFont(font: .ReadexPro, style: .medium, size: .descriptionTitle))
-            // Sign in  button
-            Button(action: {
-                // Action for next button
-            }) {
-                Text("Sign in ")
-                    .font(.customFont(font: .ReadexPro, style: .medium, size: .descriptionTitle))
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity, maxHeight: 45.0)
-                    .background(Color.newTintColor)
-                    .cornerRadius(10)
-            }
-            .padding(.horizontal, 20)
-            .padding(.vertical, 10.0)
-            Spacer()
-            
-            ZStack {
-                Divider()
-                Text("  or continue with  ")
-                    .font(.customFont(font: .ReadexPro, style: .medium, size: .descriptionTitle))
-                    .background(Color.white)
-            }
-            HStack(spacing: 40) {
-                Button(action: {
-                    // Facebook action
-                }) { Image("Facebook")
-                        .resizable()
-                        .frame(width: 30, height: 30)
-                }
-                .frame(width: 40, height: 40)
-                .overlay{
-                    RoundedRectangle(cornerRadius: 10.0)
-                        .stroke(.gray,lineWidth: 1)
+                    Button(action: {
+                        // Forgot password action
+                    }) {
+                        Text("Click here")
+                            .foregroundColor(.newTintColor)
+                            .font(.customFont(font: .ReadexPro, style: .medium, size: .descriptionTitle))
+                    }
+                    .padding(.horizontal, -3)
                 }
                 
-                Button(action: {
-                    // Apple action
-                }) {
-                    Image("Apple")
-                        .resizable()
-                        .frame(width: 30, height: 30)
+                // Toggle for Touch ID
+                Toggle("Unlock with Touch ID?", isOn: $useTouchID)
+                    .padding(.horizontal, 20)
+                    .font(.customFont(font: .ReadexPro, style: .medium, size: .descriptionTitle))
+                
+                // Sign In Button
+                NavigationLink(destination: SwiftUIView()) { // Use NavigationLink for navigation
+                    HStack {
+                        Spacer()
+                        Text("Sign in")
+                            .font(.customFont(font: .ReadexPro, style: .medium, size: .descriptionTitle))
+                        Spacer()
+                    }
+                    .frame(height: 44) // Standard height for buttons
                 }
-                .frame(width: 40, height: 40)
-                .overlay{
-                    RoundedRectangle(cornerRadius: 10.0)
-                        .stroke(.gray,lineWidth: 1)
+                .buttonStyle(BorderedProminentButtonStyle())
+                .tint(.newTintColor)
+                .padding(.bottom, 20)
+                .accessibilityIdentifier("SignInButton") // Accessibility identifier
+                
+                Spacer()
+                
+                // Continue with Section
+                ZStack {
+                    Divider()
+                    Text("  or continue with  ")
+                        .font(.customFont(font: .ReadexPro, style: .medium, size: .descriptionTitle))
+                        .background(Color.white)
                 }
                 
-                Button(action: {
-                    // Google action
-                }) {
-                    Image("Google")
-                        .resizable()
-                        .frame(width: 30, height: 30)
+                HStack(spacing: 40) {
+                    SocialButton(imageName: "Facebook", action: {
+                        // Facebook login action
+                    })
+                    SocialButton(imageName: "Apple", action: {
+                        // Apple login action
+                    })
+                    SocialButton(imageName: "Google", action: {
+                        // Google login action
+                    })
+                }.padding(30)
+                
+                Spacer()
+            }
+            .padding(.horizontal, 20)
+            .padding(.top, 30)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        Image("Coinmoney-logo")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 30, height: 30)
+                            .accessibilityLabel("Coinmoney Logo")
+                        Text("Coinmoney")
+                            .font(.customFont(font: .ReadexPro, style: .bold, size: .title))
+                            .foregroundColor(.newTintColor)
+                    }
                 }
-                .frame(width: 40, height: 40)
-                .overlay{
-                    RoundedRectangle(cornerRadius: 10.0)
-                        .stroke(.gray,lineWidth: 1)
-                }
-            }.padding(30)
-            Spacer()
+            }
         }
+        .navigationBarBackButtonHidden(true)
+        .statusBar(hidden: true)
+    }
+}
+
+struct SocialButton: View {
+    let imageName: String
+    let action: () -> Void
+    
+    var body: some View {
+        Button(action: action) {
+            Image(imageName)
+                .resizable()
+                .frame(width: 30, height: 30)
+        }
+        .frame(width: 40, height: 40)
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(Color.gray, lineWidth: 1)
+        )
     }
 }
 
