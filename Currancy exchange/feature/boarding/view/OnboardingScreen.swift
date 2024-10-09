@@ -24,7 +24,7 @@ struct OnboardingScreen: View {
                 // Image slider
                 ImageSlider()
                 // Next button
-                NavigationLink(destination: NextScreen()) { // Use NavigationLink for navigation
+                NavigationLink(destination: loginScreen()) { // Use NavigationLink for navigation
                     HStack {
                         Spacer()
                         Text("Next")
@@ -114,16 +114,6 @@ private func sliderView(for slider: OnboardingModel) -> some View {
         }.multilineTextAlignment(.center)
     }
 }
-
-struct NextScreen: View {
-    var body: some View {
-        Text("Welcome to the Next Screen!")
-            .font(.largeTitle)
-            .padding()
-            .navigationTitle("Next")
-    }
-}
-
 
 #Preview {
     OnboardingScreen()
