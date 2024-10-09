@@ -7,34 +7,53 @@
 
 import SwiftUI
 
+//TODO: check is it butter to make each type of textfield separeted becouse i need to add logic of hidden and display data of secure filed and logic of make icon button 
 struct CustomeTextField: View {
-    @State var username: String = ""
+    @Binding var text: String
+    var placeHolder: String
+    var keyboardType: UIKeyboardType = .default
+    var iconImage: Image = Image(systemName: "eye.fill")
+    @Binding var isSecure: Bool
+    @Binding var disabledButton: Bool
+    
     var body: some View {
-            TextField(
-                "Username",
-                text: $username
-            )
-            .keyboardType(.emailAddress)
-            .frame(width: .infinity, height: 20.0)
-            .autocapitalization(.none)
-            .padding()
-            .background(Color.gray.opacity(0.2))
-            .cornerRadius(10)
-            .overlay{
-                RoundedRectangle(cornerRadius: 10.0)
-                    .stroke(.blue,lineWidth: 2)
+        HStack {
+            Group {
+                if isSecure {
+                    SecureField(placeHolder, text: $text)
+                } else {
+                    TextField(placeHolder, text: $text)
+                }
             }
-            .overlay(starOverlay, alignment: .trailing)
-            .padding(.horizontal, 20.0)
-                .padding(.vertical, 10.0)
+            .keyboardType(keyboardType)
+            .autocapitalization(.none)
+            .padding(.leading)
+            
+            Button(action: {
+                isSecure.toggle()
+            }) {
+                iconImage
+                    .foregroundColor(.blue)
+                    .padding(.trailing)
+            }.disabled(disabledButton)
         }
-}
-private var starOverlay: some View {
-        Image(systemName: "star")
-    .foregroundColor(.white)
-    .padding(10)
+        .frame(height: 40)
+        .background(Color.gray.opacity(0.2))
+        .cornerRadius(10)
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(Color.blue, lineWidth: 2)
+        )
     }
+}
 
-#Preview {
-    CustomeTextField()
+struct CustomeTextField_Previews: PreviewProvider {
+    static var previews: some View {
+        CustomeTextField(
+            text: .constant(""),
+            placeHolder: "Enter text",
+            isSecure: .constant(true),
+            disabledButton: .constant(true)
+        )
+    }
 }
