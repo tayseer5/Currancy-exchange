@@ -27,6 +27,12 @@
 		66DEE4522CB7B101009D0BE1 /* TabScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DEE4512CB7B101009D0BE1 /* TabScreen.swift */; };
 		66DEE4572CB8F885009D0BE1 /* AverageProfilt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DEE4562CB8F885009D0BE1 /* AverageProfilt.swift */; };
 		66DEE4592CB8F8E5009D0BE1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DEE4582CB8F8E5009D0BE1 /* HomeViewModel.swift */; };
+		66F8CDCB2CBB9F4E003E45A8 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F8CDCA2CBB9F4E003E45A8 /* Tab.swift */; };
+		66F8CDCD2CBB9F8F003E45A8 /* TabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F8CDCC2CBB9F8F003E45A8 /* TabViewModel.swift */; };
+		66F8CDD32CBBA305003E45A8 /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F8CDD22CBBA305003E45A8 /* WalletView.swift */; };
+		66F8CDD52CBBA313003E45A8 /* FavouriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F8CDD42CBBA313003E45A8 /* FavouriteView.swift */; };
+		66F8CDD72CBBA31E003E45A8 /* MarketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F8CDD62CBBA31E003E45A8 /* MarketView.swift */; };
+		66F8CDD92CBBA344003E45A8 /* TradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F8CDD82CBBA344003E45A8 /* TradeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +58,12 @@
 		66DEE4512CB7B101009D0BE1 /* TabScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabScreen.swift; sourceTree = "<group>"; };
 		66DEE4562CB8F885009D0BE1 /* AverageProfilt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageProfilt.swift; sourceTree = "<group>"; };
 		66DEE4582CB8F8E5009D0BE1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		66F8CDCA2CBB9F4E003E45A8 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		66F8CDCC2CBB9F8F003E45A8 /* TabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewModel.swift; sourceTree = "<group>"; };
+		66F8CDD22CBBA305003E45A8 /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
+		66F8CDD42CBBA313003E45A8 /* FavouriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteView.swift; sourceTree = "<group>"; };
+		66F8CDD62CBBA31E003E45A8 /* MarketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketView.swift; sourceTree = "<group>"; };
+		66F8CDD82CBBA344003E45A8 /* TradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,8 +80,12 @@
 		66869A0E2CB7AB3700770D17 /* tabviews */ = {
 			isa = PBXGroup;
 			children = (
+				66F8CDD12CBBA2F3003E45A8 /* Wallet */,
+				66F8CDD02CBBA2ED003E45A8 /* Favourite */,
+				66F8CDCF2CBBA2E7003E45A8 /* Market */,
+				66F8CDCE2CBBA2E0003E45A8 /* Trade */,
+				66F8CDC62CBB9F07003E45A8 /* Tab */,
 				66AB871D2C418F3E001682CA /* home */,
-				66DEE4512CB7B101009D0BE1 /* TabScreen.swift */,
 			);
 			path = tabviews;
 			sourceTree = "<group>";
@@ -277,6 +293,72 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		66F8CDC62CBB9F07003E45A8 /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				66F8CDC92CBB9F20003E45A8 /* Model */,
+				66F8CDC82CBB9F18003E45A8 /* ViewModel */,
+				66F8CDC72CBB9F11003E45A8 /* View */,
+			);
+			path = Tab;
+			sourceTree = "<group>";
+		};
+		66F8CDC72CBB9F11003E45A8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				66DEE4512CB7B101009D0BE1 /* TabScreen.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		66F8CDC82CBB9F18003E45A8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				66F8CDCC2CBB9F8F003E45A8 /* TabViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		66F8CDC92CBB9F20003E45A8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				66F8CDCA2CBB9F4E003E45A8 /* Tab.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		66F8CDCE2CBBA2E0003E45A8 /* Trade */ = {
+			isa = PBXGroup;
+			children = (
+				66F8CDD82CBBA344003E45A8 /* TradeView.swift */,
+			);
+			path = Trade;
+			sourceTree = "<group>";
+		};
+		66F8CDCF2CBBA2E7003E45A8 /* Market */ = {
+			isa = PBXGroup;
+			children = (
+				66F8CDD62CBBA31E003E45A8 /* MarketView.swift */,
+			);
+			path = Market;
+			sourceTree = "<group>";
+		};
+		66F8CDD02CBBA2ED003E45A8 /* Favourite */ = {
+			isa = PBXGroup;
+			children = (
+				66F8CDD42CBBA313003E45A8 /* FavouriteView.swift */,
+			);
+			path = Favourite;
+			sourceTree = "<group>";
+		};
+		66F8CDD12CBBA2F3003E45A8 /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				66F8CDD22CBBA305003E45A8 /* WalletView.swift */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -358,9 +440,15 @@
 				6694E0862C1B1AE100384340 /* Item.swift in Sources */,
 				66AB872A2C43D06E001682CA /* CustomeTextField.swift in Sources */,
 				66AB872C2C452807001682CA /* OnboardingViewModel.swift in Sources */,
+				66F8CDD52CBBA313003E45A8 /* FavouriteView.swift in Sources */,
 				6694E09A2C2844C200384340 /* Font+Extensions.swift in Sources */,
+				66F8CDD72CBBA31E003E45A8 /* MarketView.swift in Sources */,
+				66F8CDCD2CBB9F8F003E45A8 /* TabViewModel.swift in Sources */,
 				66869A0F2CB7AC0300770D17 /* HomeScreen.swift in Sources */,
+				66F8CDD32CBBA305003E45A8 /* WalletView.swift in Sources */,
 				6694E0822C1B1AE100384340 /* Currancy_exchangeApp.swift in Sources */,
+				66F8CDD92CBBA344003E45A8 /* TradeView.swift in Sources */,
+				66F8CDCB2CBB9F4E003E45A8 /* Tab.swift in Sources */,
 				66DEE4522CB7B101009D0BE1 /* TabScreen.swift in Sources */,
 				66AB87242C41A43A001682CA /* loginScreen.swift in Sources */,
 				66DEE4592CB8F8E5009D0BE1 /* HomeViewModel.swift in Sources */,
